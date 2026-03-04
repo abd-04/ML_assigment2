@@ -2,9 +2,14 @@ import streamlit as st
 import joblib
 import numpy as np
 
-binary_model = joblib.load("../models/binary_model.pkl")
-multi_model = joblib.load("../models/multiclass_model.pkl")
-reg_model = joblib.load("../models/regression_model.pkl")
+import os
+import joblib
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+binary_model = joblib.load(os.path.join(BASE_DIR, "models", "binary_model.pkl"))
+multi_model = joblib.load(os.path.join(BASE_DIR, "models", "multiclass_model.pkl"))
+reg_model = joblib.load(os.path.join(BASE_DIR, "models", "regression_model.pkl"))
 
 st.title("Diabetes Prediction App")
 
